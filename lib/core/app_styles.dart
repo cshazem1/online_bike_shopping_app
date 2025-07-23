@@ -8,7 +8,7 @@ import 'app_colors.dart';
 class AppStyles {
   static TextStyle descriptionStyle =  GoogleFonts.poppins(
     color: AppColors.white,
-    fontSize: 20.sp,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w700,
   );
   static TextStyle titleStyle =  GoogleFonts.poppins(
@@ -17,7 +17,13 @@ class AppStyles {
     fontWeight: FontWeight.w700,
   );
   static TextStyle categoryStyle =  GoogleFonts.poppins(
-    color: AppColors.white,
+    color: AppColors.white.withValues(alpha: (0.6 * 255)),
+    fontSize: 13.sp,
+    fontWeight: FontWeight.w500,
+
+  );
+  static TextStyle priceStyle =  GoogleFonts.poppins(
+    color: AppColors.white.withValues(alpha: (0.6 * 255)),
     fontSize: 13.sp,
     fontWeight: FontWeight.w500,
   );

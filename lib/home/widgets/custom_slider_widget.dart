@@ -13,66 +13,73 @@ class CustomSliderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Positioned(
-          top: -2.h,
-          left: -2.w,
-          child: ClipPath(
-            clipper: BottomSlantedClipperWithRadius(radius: 19,slant: 60),
-            child: Container(
-              height: 244.h,
-              width: 354.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
-                color: AppColors.border,
-              ),
+    return SizedBox(
+      height: 240.h,
+      width: 350.w,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            top: -2.h,
+            left: -2.w,
+            child: ClipPath(
+              clipper: BottomSlantedClipperWithRadius(radius: 19,slant: 60),
+              child: Container(
+                height: 245.h,
+                width: 355.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.r),
+                  color: AppColors.border,
+                ),
 
+              ),
             ),
           ),
-        ),
-        ClipPath(
-          clipper: BottomSlantedClipperWithRadius(radius: 20,slant: 60),
-          child: Container(
-            height: 240.h,
-            width: 350.w,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.r),
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.darkBlueCard2,
-                  AppColors.darkBlueCard2,
-                  AppColors.lightBlueCard,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-            child:Padding(
-              padding: EdgeInsets.only(top: 30.h,left: 17.w),
-
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Image.asset(
-                      Assets.bike,
-                    ),
+          Positioned(
+            top: 1.h,
+            left: 1.w,
+            child: ClipPath(
+              clipper: BottomSlantedClipperWithRadius(radius: 20,slant: 60),
+              child: Container(
+                height: 240.h,
+                width: 350.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.r),
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.darkBlueCard2,
+                      AppColors.darkBlueCard2,
+                      AppColors.lightBlueCard,
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
-                  Text(
-                    '30% Off',
-                    style: AppStyles.titleStyle,
-                  )
-                ],
+                ),
+                child:Padding(
+                  padding:  EdgeInsets.only(top:30.h,left: 20.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Image.asset(
+                          Assets.bike,
+                        ),
+                      ),
+                      Text(
+                        '30% Off',
+                        style: AppStyles.titleStyle,
+                      )
+                    ],
+                  ),
+                ),
+
               ),
             ),
-
           ),
-        ),
 
-      ],
+        ],
+      ),
     );
   }
 }

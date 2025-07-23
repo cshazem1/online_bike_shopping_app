@@ -51,9 +51,11 @@ class _CustomCategoryWidgetState extends State<CustomCategoryWidget> {
               onTap: () => setState(() => selectedIndex = index),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                width: 50.w,
-                height: 50.h,
+                width: 60.w,
+                height: 60.h,
                 decoration: BoxDecoration(
+                  border: isSelected
+                      ?Border.all(width: 2, color: AppColors.lightBlue):Border.all(width: 2, color: AppColors.border),
                   borderRadius: BorderRadius.circular(16),
                   gradient: isSelected
                       ? LinearGradient(

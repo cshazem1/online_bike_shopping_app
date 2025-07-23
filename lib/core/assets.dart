@@ -1,8 +1,11 @@
 class Assets {
   static const String bike = 'assets/bike.png';
-  static const String all = "assets/all_icon.svg";
-  static const String road = "assets/road_icon.svg";
-  static const String battery = "assets/battery_icon.svg";
-  static const String tools = "assets/tools_icon.svg";
-  static const String safety = "assets/safety_icon.svg";
+  static const String all = "assets/icons/all_icon.svg";
+  static const String road = "assets/icons/road_icon.svg";
+  static const String battery = "assets/icons/battery_icon.svg";
+  static const String tools = "assets/icons/tools_icon.svg";
+  static const String safety = "assets/icons/safety_icon.svg";
+  static const String bike2 = "assets/bike2.png";
+  static const String bike3 = "assets/bike3.png";
+  static const String sefty = "assets/sefty.png";
 }
