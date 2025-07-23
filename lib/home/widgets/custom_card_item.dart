@@ -36,6 +36,9 @@ final String price;
             width: 165.w,
             decoration: BoxDecoration(
               color: AppColors.border,
+              boxShadow: [
+
+              ],
 
               gradient: LinearGradient(
                 colors: [AppColors.darkBlueCard, AppColors.lightBlueCard],
