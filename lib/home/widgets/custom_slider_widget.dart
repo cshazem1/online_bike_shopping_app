@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:online_bike_shopping_app/core/app_styles.dart';
+import 'package:online_bike_shopping_app/core/assets.dart';
 
 import '../../core/app_colors.dart';
 
@@ -47,6 +50,25 @@ class CustomSliderWidget extends StatelessWidget {
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
+                  ),
+                ),
+                child:Padding(
+                  padding: EdgeInsets.only(top: 30.h,left: 17.w),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Image.asset(
+                          Assets.bike,
+                        ),
+                      ),
+                      Text(
+                        '30% Off',
+                        style: AppStyles.titleStyle,
+                      )
+                    ],
                   ),
                 ),
 
