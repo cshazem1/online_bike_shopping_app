@@ -36,7 +36,7 @@ class ParallelogramClipper extends CustomClipper<Path> {
 
     Path path = Path();
     path.moveTo(slant, 0);
-    path.lineTo(size.width, 40.w);
+    path.lineTo(size.width, 50.w);
     path.lineTo(size.width , size.height);
     path.lineTo(-20.h, size.height);
     path.close();

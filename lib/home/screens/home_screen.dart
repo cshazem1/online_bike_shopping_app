@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/app_colors.dart';
 import '../widgets/back_ground_shape_widget.dart';
+import '../widgets/custom_slider_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,12 +13,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: AppColors.darkBlue,
-      body: Stack(children: [
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
         Positioned(
             top: 200.h,
-            child: BackgroundShape())
+            child: BackgroundShape()),
+        Positioned(
+          top: 150.h,
+          child: CustomSliderWidget(),
+        )
       ],),
     );
   }
 }
+
+
+
+
 
