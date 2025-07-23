@@ -13,71 +13,67 @@ class CustomSliderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return Stack(
+      clipBehavior: Clip.none,
       children: [
-        Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Positioned(
-              top: -2.h,
-              left: -2.w,
-              child: ClipPath(
-                clipper: BottomSlantedClipperWithRadius(radius: 19,slant: 60),
-                child: Container(
-                  height: 244.h,
-                  width: 354.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.r),
-                    color: AppColors.border,
-                  ),
+        Positioned(
+          top: -2.h,
+          left: -2.w,
+          child: ClipPath(
+            clipper: BottomSlantedClipperWithRadius(radius: 19,slant: 60),
+            child: Container(
+              height: 244.h,
+              width: 354.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.r),
+                color: AppColors.border,
+              ),
 
-                ),
+            ),
+          ),
+        ),
+        ClipPath(
+          clipper: BottomSlantedClipperWithRadius(radius: 20,slant: 60),
+          child: Container(
+            height: 240.h,
+            width: 350.w,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.r),
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.darkBlueCard2,
+                  AppColors.darkBlueCard2,
+                  AppColors.lightBlueCard,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
             ),
-            ClipPath(
-              clipper: BottomSlantedClipperWithRadius(radius: 20,slant: 60),
-              child: Container(
-                height: 240.h,
-                width: 350.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.r),
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.darkBlueCard2,
-                      AppColors.darkBlueCard2,
-                      AppColors.lightBlueCard,
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                ),
-                child:Padding(
-                  padding: EdgeInsets.only(top: 30.h,left: 17.w),
+            child:Padding(
+              padding: EdgeInsets.only(top: 30.h,left: 17.w),
 
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Image.asset(
-                          Assets.bike,
-                        ),
-                      ),
-                      Text(
-                        '30% Off',
-                        style: AppStyles.titleStyle,
-                      )
-                    ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Image.asset(
+                      Assets.bike,
+                    ),
                   ),
-                ),
-
+                  Text(
+                    '30% Off',
+                    style: AppStyles.titleStyle,
+                  )
+                ],
               ),
             ),
 
-          ],
-        )
-      ],);
+          ),
+        ),
+
+      ],
+    );
   }
 }
 class BottomSlantedClipperWithRadius extends CustomClipper<Path> {

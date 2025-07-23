@@ -16,4 +16,9 @@ class AppStyles {
     fontSize: 26.sp,
     fontWeight: FontWeight.w700,
   );
+  static TextStyle categoryStyle =  GoogleFonts.poppins(
+    color: AppColors.white,
+    fontSize: 13.sp,
+    fontWeight: FontWeight.w500,
+  );
 }
