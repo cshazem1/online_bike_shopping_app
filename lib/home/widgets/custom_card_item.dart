@@ -5,13 +5,20 @@ import 'package:online_bike_shopping_app/core/assets.dart';
 
 import '../../core/app_colors.dart';
 
-
 class CustomCardItem extends StatelessWidget {
-  const CustomCardItem({super.key,required this.image,required this.title,required this.subtitle,required this.price});
-final String image;
-final String title;
-final String subtitle;
-final String price;
+  const CustomCardItem({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.subtitle,
+    required this.price,
+    this.index = 0,
+  });
+  final String image;
+  final String title;
+  final String subtitle;
+  final String price;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -36,43 +43,40 @@ final String price;
             width: 165.w,
             decoration: BoxDecoration(
               color: AppColors.border,
-              boxShadow: [
-
-              ],
+              boxShadow: [],
 
               gradient: LinearGradient(
-                colors: [AppColors.darkBlueCard, AppColors.lightBlueCard],
-                begin: Alignment.topLeft,
+                colors: [ AppColors.darkBlueCard,AppColors.lightBlueCard,],
+                begin: Alignment.topRight,
+                transform: GradientRotation(-0.9),
                 end: Alignment.bottomRight,
-                stops: [0.2, 1.0],
+                stops: [0.3-index, 1.0],
               ),
-
             ),
             child: Padding(
-              padding:  EdgeInsets.only(top:30.h,left: 20.w,right: 20.w,bottom: 18.h),
+              padding: EdgeInsets.only(
+                top: 30.h,
+                left: 20.w,
+                right: 20.w,
+                bottom: 18.h,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
-                      alignment: Alignment.topCenter,
-                      child: SizedBox(
-                          width: 121.w,
-                          height: 89.h,
-                          child: Image.asset(image, fit: BoxFit.fill))),
+                    alignment: Alignment.topCenter,
+                    child: SizedBox(
+                      width: 121.w,
+                      height: 89.h,
+                      child: Image.asset(image, fit: BoxFit.fill),
+                    ),
+                  ),
                   15.verticalSpace,
-                  Text(
-                    title,
-                    style: AppStyles.priceStyle),
+                  Text(title, style: AppStyles.priceStyle),
                   2.verticalSpace,
-                  Text(
-                    subtitle,
-                    style: AppStyles.descriptionStyle,
-                  ),
+                  Text(subtitle, style: AppStyles.descriptionStyle),
                   2.verticalSpace,
-                  Text(
-                    "\$$price",
-                    style: AppStyles.priceStyle,
-                  ),
+                  Text("\$$price", style: AppStyles.priceStyle),
                 ],
               ),
             ),
@@ -82,6 +86,7 @@ final String price;
     );
   }
 }
+
 class CustomClipperItem extends CustomClipper<Path> {
   final double slant;
   final double radius;
@@ -98,13 +103,13 @@ class CustomClipperItem extends CustomClipper<Path> {
     path.quadraticBezierTo(0, h, radius, h);
 
     path.lineTo(w - radius, h - slant);
-    path.quadraticBezierTo(w, h - slant, w, h - slant - radius*2);
+    path.quadraticBezierTo(w, h - slant, w, h - slant - radius * 2);
 
     path.lineTo(w, radius);
     path.quadraticBezierTo(w, 0, w - radius, 0);
 
     path.lineTo(radius, slant);
-    path.quadraticBezierTo(0, slant, 0, slant + radius*2);
+    path.quadraticBezierTo(0, slant, 0, slant + radius * 2);
 
     path.close();
     return path;

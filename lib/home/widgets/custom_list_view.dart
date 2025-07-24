@@ -24,7 +24,7 @@ List price = ["1,999.99","120","3000","1,999.99","120","3000",];
           itemBuilder: (context, index) {
             return Transform.translate(
               offset: Offset(0, index.isEven ? 50.h : 0),
-              child:  CustomCardItem(image: images[index],title: title[index],subtitle: subtitle[index],price: price[index],),
+              child:  CustomCardItem(image: images[index],title: title[index],subtitle: subtitle[index],price: price[index],index: index,),
             );
           },
           gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(

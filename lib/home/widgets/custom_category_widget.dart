@@ -59,7 +59,7 @@ class _CustomCategoryWidgetState extends State<CustomCategoryWidget> {
                   borderRadius: BorderRadius.circular(16),
                   gradient: isSelected
                       ? LinearGradient(
-                    colors: [AppColors.lightBlue2, AppColors.lightBlue],
+                    colors: [ AppColors.lightBlue1,AppColors.lightBlue,],
                   )
                       : LinearGradient(
                     colors: isFirstGroup
