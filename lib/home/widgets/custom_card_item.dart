@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_bike_shopping_app/core/app_styles.dart';
-import 'package:online_bike_shopping_app/core/assets.dart';
 
 import '../../core/app_colors.dart';
 
 class CustomCardItem extends StatefulWidget {
-   const CustomCardItem({
+  const CustomCardItem({
     super.key,
     required this.image,
     required this.title,
@@ -26,11 +24,11 @@ class CustomCardItem extends StatefulWidget {
 }
 
 class _CustomCardItemState extends State<CustomCardItem> {
- bool isFavorite=false;
- bool isSmallIndex() {
-   final mod = widget.index % 4;
-   return mod == 1 || mod == 2;
- }
+  bool isFavorite = false;
+  bool isSmallIndex() {
+    final mod = widget.index % 4;
+    return mod == 1 || mod == 2;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,7 @@ class _CustomCardItemState extends State<CustomCardItem> {
           child: ClipPath(
             clipper: CustomClipperItem(),
             child: Container(
-              height:isSmallIndex()?225.h: 245.h,
+              height: isSmallIndex() ? 225.h : 245.h,
               width: 169.w,
               decoration: BoxDecoration(color: AppColors.border),
             ),
@@ -52,18 +50,18 @@ class _CustomCardItemState extends State<CustomCardItem> {
         ClipPath(
           clipper: CustomClipperItem(),
           child: Container(
-            height:isSmallIndex()?221.h: 241.h,
+            height: isSmallIndex() ? 221.h : 241.h,
             width: 165.w,
             decoration: BoxDecoration(
               color: AppColors.border,
               boxShadow: [],
 
               gradient: LinearGradient(
-                colors: [ AppColors.darkBlueCard,AppColors.lightBlueCard,],
+                colors: [AppColors.darkBlueCard, AppColors.lightBlueCard],
                 begin: Alignment.topRight,
                 transform: GradientRotation(-0.9),
                 end: Alignment.bottomRight,
-                stops: [0.3-widget.index, 1.0],
+                stops: [0.3 - widget.index, 1.0],
               ),
             ),
             child: Padding(
@@ -87,11 +85,23 @@ class _CustomCardItemState extends State<CustomCardItem> {
                         ),
                       ),
                       15.verticalSpace,
-                      FittedBox(child: Text(widget.title, style: AppStyles.priceStyle)),
+                      FittedBox(
+                        child: Text(widget.title, style: AppStyles.priceStyle),
+                      ),
                       2.verticalSpace,
-                      FittedBox(child: Text(widget.subtitle, style: AppStyles.descriptionStyle)),
+                      FittedBox(
+                        child: Text(
+                          widget.subtitle,
+                          style: AppStyles.descriptionStyle,
+                        ),
+                      ),
                       2.verticalSpace,
-                      FittedBox(child: Text("\$${widget.price}", style: AppStyles.priceStyle)),
+                      FittedBox(
+                        child: Text(
+                          "\$${widget.price}",
+                          style: AppStyles.priceStyle,
+                        ),
+                      ),
                     ],
                   ),
                   Positioned(
@@ -104,7 +114,9 @@ class _CustomCardItemState extends State<CustomCardItem> {
                       },
                       child: Icon(
                         Icons.favorite_border,
-                        color:isFavorite?AppColors.lightBlue: AppColors.white,
+                        color: isFavorite
+                            ? AppColors.lightBlue
+                            : AppColors.white,
                         size: 25.sp,
                       ),
                     ),

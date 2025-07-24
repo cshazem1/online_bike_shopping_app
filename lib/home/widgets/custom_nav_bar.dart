@@ -2,13 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/app_colors.dart';
-import 'custom_slider_widget.dart';
 import 'icon_selector_row.dart';
 
 class CustomNavBar extends StatelessWidget {
-  const CustomNavBar({
-    super.key,
-  });
+  const CustomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +22,7 @@ class CustomNavBar extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   transform: GradientRotation(3.14),
-                  colors: [
-                    AppColors.darkBlueCard2,
-                    AppColors.lightBlueCard,
-                  ],
+                  colors: [AppColors.darkBlueCard2, AppColors.lightBlueCard],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:online_bike_shopping_app/core/app_styles.dart';
 import 'package:online_bike_shopping_app/core/assets.dart';
 
 import '../../core/app_colors.dart';
 
 class CustomSliderWidget extends StatelessWidget {
-  const CustomSliderWidget({
-    super.key,
-  });
+  const CustomSliderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +20,7 @@ class CustomSliderWidget extends StatelessWidget {
             top: -2.h,
             left: -2.w,
             child: ClipPath(
-              clipper: BottomSlantedClipperWithRadius(radius: 19,slant: 60),
+              clipper: BottomSlantedClipperWithRadius(radius: 19, slant: 60),
               child: Container(
                 height: 245.h,
                 width: 355.w,
@@ -31,7 +28,6 @@ class CustomSliderWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.r),
                   color: AppColors.border,
                 ),
-
               ),
             ),
           ),
@@ -39,7 +35,7 @@ class CustomSliderWidget extends StatelessWidget {
             top: 1.h,
             left: 1.w,
             child: ClipPath(
-              clipper: BottomSlantedClipperWithRadius(radius: 20,slant: 60),
+              clipper: BottomSlantedClipperWithRadius(radius: 20, slant: 60),
               child: Container(
                 height: 240.h,
                 width: 350.w,
@@ -55,42 +51,33 @@ class CustomSliderWidget extends StatelessWidget {
                     end: Alignment.bottomRight,
                   ),
                 ),
-                child:Padding(
-                  padding:  EdgeInsets.only(top:30.h,left: 20.w),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 30.h, left: 20.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
                         alignment: Alignment.topLeft,
-                        child: Image.asset(
-                          Assets.bike,
-                        ),
+                        child: Image.asset(Assets.bike),
                       ),
-                      Text(
-                        '30% Off',
-                        style: AppStyles.titleStyle,
-                      )
+                      Text('30% Off', style: AppStyles.titleStyle),
                     ],
                   ),
                 ),
-
               ),
             ),
           ),
-
         ],
       ),
     );
   }
 }
+
 class BottomSlantedClipperWithRadius extends CustomClipper<Path> {
   final double slant;
   final double radius;
 
-  BottomSlantedClipperWithRadius({
-    this.slant = 30,
-    this.radius = 16,
-  });
+  BottomSlantedClipperWithRadius({this.slant = 30, this.radius = 16});
 
   @override
   Path getClip(Size size) {

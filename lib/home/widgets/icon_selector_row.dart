@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,6 +12,7 @@ class IconSelectorRow extends StatefulWidget {
   @override
   State<IconSelectorRow> createState() => _IconSelectorRowState();
 }
+
 class _IconSelectorRowState extends State<IconSelectorRow> {
   int selectedIndex = 0;
 
@@ -39,55 +39,56 @@ class _IconSelectorRowState extends State<IconSelectorRow> {
           },
           child: isSelected
               ? Transform.rotate(
-            angle: -0.1,
-            child: Transform.translate(
-              offset: const Offset(0, -20),
-              child: ClipPath(
-                clipper: CustomClipperItem(slant: 9, radius: 15.r),
-                child: Container(
-                  height: 70.h,
-                  width: 70.w,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [ AppColors.lightBlue1,AppColors.lightBlue,],
+                  angle: -0.1,
+                  child: Transform.translate(
+                    offset: const Offset(0, -20),
+                    child: ClipPath(
+                      clipper: CustomClipperItem(slant: 9, radius: 15.r),
+                      child: Container(
+                        height: 70.h,
+                        width: 70.w,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [AppColors.lightBlue1, AppColors.lightBlue],
 
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomCenter,
-                    ),
-                    borderRadius: BorderRadius.circular(15.r),
-                  ),
-                  child:          SizedBox(
-                    height: 30.h,
-                    width: 30.w,
-                    child: Center(
-                      child: SvgPicture.asset(
-                        icons[index],
-                        color: Colors.white,
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(15.r),
+                        ),
+                        child: SizedBox(
+                          height: 30.h,
+                          width: 30.w,
+                          child: Center(
+                            child: SvgPicture.asset(
+                              icons[index],
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
-          )
+                )
               : Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: isSelected
-                    ? Colors.blue.withOpacity(0.2)
-                    : Colors.transparent,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: SvgPicture.asset(icons[index]),
-            ),
-          ),
+                  alignment: Alignment.center,
+                  child: Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? Colors.blue.withOpacity(0.2)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: SvgPicture.asset(icons[index]),
+                  ),
+                ),
         );
       }),
     );
   }
 }
+
 class BottomSlantedClipperWithRadiusNB extends CustomClipper<Path> {
   final double slant;
   final double radius;

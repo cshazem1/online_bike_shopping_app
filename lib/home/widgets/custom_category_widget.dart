@@ -12,24 +12,19 @@ class CustomCategoryWidget extends StatefulWidget {
   @override
   State<CustomCategoryWidget> createState() => _CustomCategoryWidgetState();
 }
+
 class _CustomCategoryWidgetState extends State<CustomCategoryWidget> {
   int selectedIndex = 0;
 
   final List<SvgPicture> icons = [
-    SvgPicture.asset(Assets.all, color: AppColors.grey,),
+    SvgPicture.asset(Assets.all, color: AppColors.grey),
     SvgPicture.asset(Assets.battery),
     SvgPicture.asset(Assets.road),
     SvgPicture.asset(Assets.tools),
     SvgPicture.asset(Assets.safety),
   ];
 
-  final List<String> labels = [
-    "All",
-    "Battery",
-    "Road",
-    "Tools",
-    "Safety",
-  ];
+  final List<String> labels = ["All", "Battery", "Road", "Tools", "Safety"];
 
   @override
   Widget build(BuildContext context) {
@@ -56,28 +51,35 @@ class _CustomCategoryWidgetState extends State<CustomCategoryWidget> {
                 height: 60.h,
                 decoration: BoxDecoration(
                   border: isSelected
-                      ?Border.all(width: 2, color: AppColors.lightBlue):Border.all(width: 2, color: AppColors.border),
+                      ? Border.all(width: 2, color: AppColors.lightBlue)
+                      : Border.all(width: 2, color: AppColors.border),
                   borderRadius: BorderRadius.circular(16),
                   gradient: isSelected
                       ? LinearGradient(
-                    colors: [ AppColors.lightBlue1,AppColors.lightBlue,],
-                  )
+                          colors: [AppColors.lightBlue1, AppColors.lightBlue],
+                        )
                       : LinearGradient(
-                    colors: isFirstGroup
-                        ? [AppColors.darkBlueCard, AppColors.darkBlueCard2]
-                        : [AppColors.darkBlueCard, AppColors.lightBlueCard],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                          colors: isFirstGroup
+                              ? [
+                                  AppColors.darkBlueCard,
+                                  AppColors.darkBlueCard2,
+                                ]
+                              : [
+                                  AppColors.darkBlueCard,
+                                  AppColors.lightBlueCard,
+                                ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
                 ),
                 alignment: Alignment.center,
                 child: isSelected
                     ? FittedBox(
-                  child: Text(
-                    labels[index],
-                    style: AppStyles.categoryStyle,
-                  ),
-                )
+                        child: Text(
+                          labels[index],
+                          style: AppStyles.categoryStyle,
+                        ),
+                      )
                     : icons[index],
               ),
             ),

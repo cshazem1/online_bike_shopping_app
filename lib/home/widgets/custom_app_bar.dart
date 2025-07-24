@@ -9,32 +9,29 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding:  EdgeInsets.only(right: 40.w),
+    return Padding(
+      padding: EdgeInsets.only(right: 40.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'Bike Shop',
-            style: AppStyles.appBarStyle,
-          ),
-           Container(
-             height: 45.h,
-             width: 45.w,
-             decoration: BoxDecoration(
-               borderRadius: BorderRadius.circular(10.r),
-               gradient: LinearGradient(
-                 colors: [ AppColors.lightBlue1,AppColors.lightBlue,],
-                 begin: Alignment.topLeft,
-                 end: Alignment.bottomCenter,
-               ),
-             ),
-             child: Icon(
+          Text('Bike Shop', style: AppStyles.appBarStyle),
+          Container(
+            height: 45.h,
+            width: 45.w,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.r),
+              gradient: LinearGradient(
+                colors: [AppColors.lightBlue1, AppColors.lightBlue],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: Icon(
               CupertinoIcons.search,
               color: AppColors.white1,
               size: 30,
-                     ),
-           ),
+            ),
+          ),
         ],
       ),
     );

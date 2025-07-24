@@ -6,17 +6,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'home/screens/home_screen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => OnlineBikeShoppingApp(), // Wrap your app
-  ), );
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => OnlineBikeShoppingApp(), // Wrap your app
+    ),
+  );
 }
 
 class OnlineBikeShoppingApp extends StatelessWidget {
@@ -28,12 +30,7 @@ class OnlineBikeShoppingApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
-
-      ),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen()),
     );
-}
-
+  }
 }
