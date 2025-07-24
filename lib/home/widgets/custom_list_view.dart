@@ -30,8 +30,8 @@ List price = ["1,999.99","120","3000","1,999.99","120","3000",];
           gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            mainAxisExtent: 240.h,
+            mainAxisSpacing: 10,
+            mainAxisExtent: 242.h,
           ),
         ),
       ),

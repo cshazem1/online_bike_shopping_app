@@ -34,12 +34,13 @@ class _CustomCategoryWidgetState extends State<CustomCategoryWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130.h,
+      height: 90.h,
       width: MediaQuery.of(context).size.width,
       child: Stack(
+        clipBehavior: Clip.none,
         children: List.generate(icons.length, (index) {
           double leftOffset = 20.0.w + index * 70;
-          double topOffset = 70.0.h - index * 18;
+          double topOffset = 40.0.h - index * 20;
 
           bool isSelected = selectedIndex == index;
           bool isFirstGroup = (index ~/ 3) % 2 == 0;

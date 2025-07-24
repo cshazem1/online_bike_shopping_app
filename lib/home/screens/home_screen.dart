@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.only(left: 20.w, right: 30.w),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height - 180.h,
+                height: MediaQuery.of(context).size.height - 150.h,
                 child: Column(
                   children: [
                     CustomAppBar(),

@@ -27,6 +27,10 @@ class CustomCardItem extends StatefulWidget {
 
 class _CustomCardItemState extends State<CustomCardItem> {
  bool isFavorite=false;
+ bool isSmallIndex() {
+   final mod = widget.index % 4;
+   return mod == 1 || mod == 2;
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class _CustomCardItemState extends State<CustomCardItem> {
           child: ClipPath(
             clipper: CustomClipperItem(),
             child: Container(
-              height: 245.h,
+              height:isSmallIndex()?225.h: 245.h,
               width: 169.w,
               decoration: BoxDecoration(color: AppColors.border),
             ),
@@ -48,7 +52,7 @@ class _CustomCardItemState extends State<CustomCardItem> {
         ClipPath(
           clipper: CustomClipperItem(),
           child: Container(
-            height: 241.h,
+            height:isSmallIndex()?221.h: 241.h,
             width: 165.w,
             decoration: BoxDecoration(
               color: AppColors.border,
@@ -83,11 +87,11 @@ class _CustomCardItemState extends State<CustomCardItem> {
                         ),
                       ),
                       15.verticalSpace,
-                      Text(widget.title, style: AppStyles.priceStyle),
+                      Flexible(child: Text(widget.title, style: AppStyles.priceStyle)),
                       2.verticalSpace,
-                      Text(widget.subtitle, style: AppStyles.descriptionStyle),
+                      Flexible(child: Text(widget.subtitle, style: AppStyles.descriptionStyle)),
                       2.verticalSpace,
-                      Text("\$${widget.price}", style: AppStyles.priceStyle),
+                      Flexible(child: Text("\$${widget.price}", style: AppStyles.priceStyle)),
                     ],
                   ),
                   Positioned(
