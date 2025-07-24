@@ -16,7 +16,6 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.0
   google_fonts: ^6.2.1
-  inner_shadow: ^1.0.3
 
 dev_dependencies:
   flutter_test:
