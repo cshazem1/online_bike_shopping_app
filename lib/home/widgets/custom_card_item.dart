@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_bike_shopping_app/core/app_styles.dart';
@@ -5,8 +6,8 @@ import 'package:online_bike_shopping_app/core/assets.dart';
 
 import '../../core/app_colors.dart';
 
-class CustomCardItem extends StatelessWidget {
-  const CustomCardItem({
+class CustomCardItem extends StatefulWidget {
+   const CustomCardItem({
     super.key,
     required this.image,
     required this.title,
@@ -19,6 +20,14 @@ class CustomCardItem extends StatelessWidget {
   final String subtitle;
   final String price;
   final int index;
+
+  @override
+  State<CustomCardItem> createState() => _CustomCardItemState();
+}
+
+class _CustomCardItemState extends State<CustomCardItem> {
+ bool isFavorite=false;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -50,7 +59,7 @@ class CustomCardItem extends StatelessWidget {
                 begin: Alignment.topRight,
                 transform: GradientRotation(-0.9),
                 end: Alignment.bottomRight,
-                stops: [0.3-index, 1.0],
+                stops: [0.3-widget.index, 1.0],
               ),
             ),
             child: Padding(
@@ -60,23 +69,42 @@ class CustomCardItem extends StatelessWidget {
                 right: 20.w,
                 bottom: 18.h,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: [
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: SizedBox(
-                      width: 121.w,
-                      height: 89.h,
-                      child: Image.asset(image, fit: BoxFit.fill),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: SizedBox(
+                          width: 121.w,
+                          height: 89.h,
+                          child: Image.asset(widget.image, fit: BoxFit.fill),
+                        ),
+                      ),
+                      15.verticalSpace,
+                      Text(widget.title, style: AppStyles.priceStyle),
+                      2.verticalSpace,
+                      Text(widget.subtitle, style: AppStyles.descriptionStyle),
+                      2.verticalSpace,
+                      Text("\$${widget.price}", style: AppStyles.priceStyle),
+                    ],
+                  ),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: GestureDetector(
+                      onTap: () {
+                        isFavorite = !isFavorite;
+                        setState(() {});
+                      },
+                      child: Icon(
+                        Icons.favorite_border,
+                        color:isFavorite?AppColors.lightBlue: AppColors.white,
+                        size: 25.sp,
+                      ),
                     ),
                   ),
-                  15.verticalSpace,
-                  Text(title, style: AppStyles.priceStyle),
-                  2.verticalSpace,
-                  Text(subtitle, style: AppStyles.descriptionStyle),
-                  2.verticalSpace,
-                  Text("\$$price", style: AppStyles.priceStyle),
                 ],
               ),
             ),

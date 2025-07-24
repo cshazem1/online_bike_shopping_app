@@ -44,7 +44,6 @@ class HomeScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             CustomSliderWidget(),
                             CustomCategoryWidget(),
                             CustomListView(),
